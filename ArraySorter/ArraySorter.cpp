@@ -323,6 +323,8 @@ int main()
 
 	std::cin >> ArrSz;
 
+	Sleep(700);
+
 	int* Array = new int[ArrSz];
 
 	RandomizeArr(Array, ArrSz);
@@ -344,8 +346,6 @@ int main()
 	void (*FuncPointers[])(int*, int) = { SortFuncs::SelectionSort, SortFuncs::BubbleSort, SortFuncs::QuickSort, SortFuncs::MergeSort, SortFuncs::InsertionSort, SortFuncs::HeapSort, SortFuncs::ShellSort };
 	int SortingAlgo = 0;
 
-	Sleep(500);
-
 	while (!GetAsyncKeyState(VK_ESCAPE))
 	{
 		auto Start = std::chrono::system_clock::now();
@@ -360,7 +360,7 @@ int main()
 			break;
 		}
 
-		if (GetAsyncKeyState(VK_RETURN))
+		if (GetAsyncKeyState(VK_RETURN) & 0x8000)
 		{
 			if (DoRand)
 			{
@@ -378,7 +378,7 @@ int main()
 			}
 		}
 
-		if (GetAsyncKeyState(VK_F1))
+		if (GetAsyncKeyState(VK_F1) & 0x8000)
 		{
 			if (Running == true)
 			{
@@ -403,7 +403,7 @@ int main()
 			Sleep(100);
 		}
 
-		if (GetAsyncKeyState(VK_BACK))
+		if (GetAsyncKeyState(VK_BACK) & 0x8000)
 		{
 			if (Running == false)
 			{
