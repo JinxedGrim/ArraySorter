@@ -421,17 +421,16 @@ int main()
 			int Rounded = std::roundf((float)sx / (float)ArrSz);
 
 			if (Rounded < 1)
-				Rounded += 1;
+				Rounded = 1;
 
 			Gdi.DrawFilledRect(x, sy - Array[i], Rounded, Array[i], BrushPP(RGB(255, 255, 255)));
 
-			x += Rounded;
-
-			RenderedElements = i;
+			RenderedElements++;
 
 			if (x > sx)
 				break;
 
+			x += Rounded;
 		}
 
 		std::string AlgoStr = "Sorting Algorithm: " + AlgoNames[SortingAlgo];
